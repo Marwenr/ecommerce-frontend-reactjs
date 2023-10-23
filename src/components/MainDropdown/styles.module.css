@@ -1,0 +1,6 @@
+.link {
+  color: var(--bg-color);
+}
+.link:hover {
+  color: var(--main-color);
+}

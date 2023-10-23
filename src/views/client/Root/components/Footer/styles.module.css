@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 50px;
+}
+.navbarSecondary {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.copyrightText {
+  width: 100%;
+  color: var(--bg-color);
+  text-align: center;
+  font-size: 16px;
+  margin: 20px 0px;
+}
+
+.copyrightText a {
+  color: var(--main-color);
+}
+
+.copyrightText a:hover {
+  color: var(--main-hover);
+}

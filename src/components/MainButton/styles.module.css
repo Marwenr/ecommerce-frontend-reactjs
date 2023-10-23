@@ -1,0 +1,8 @@
+.bgColor {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+.bgColor:hover {
+  background-color: var(--main-hover);
+  border-color: var(--main-hover);
+}
