@@ -14,3 +14,16 @@
   background-color: var(--border-color);
   margin-block: auto;
 }
+
+.dropNav {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .nav {
+    display: none;
+  }
+  .dropNav {
+    display: block;
+  }
+}

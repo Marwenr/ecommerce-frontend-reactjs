@@ -14,7 +14,9 @@ function MainDropdown({ children, items }) {
       <Dropdown.Menu as={Link}>
         {items &&
           items.map((item) => (
-            <Dropdown.Item eventKey={item.id}>{item.title}</Dropdown.Item>
+            <Dropdown.Item eventKey={item.id} as={Link} to={item.to}>
+              {item.title}
+            </Dropdown.Item>
           ))}
       </Dropdown.Menu>
     </Dropdown>

@@ -17,10 +17,17 @@ import {
 } from "../../../../../components";
 
 function Header() {
-  const { navbar, navbarSecondary, separator } = styles;
+  const { navbar, navbarSecondary, separator, nav, dropNav } = styles;
   const test = [
-    { id: 1, title: "test" },
-    { id: 2, title: "test2" },
+    { id: 1, title: "test", to: "test" },
+    { id: 2, title: "test2", to: "test2" },
+  ];
+  const shop = [
+    { id: 1, title: "Best Sellers", to: "/bestsellers" },
+    { id: 2, title: "Gift Ideas", to: "/giftideas" },
+    { id: 3, title: "New Releases", to: "/newreleases" },
+    { id: 4, title: "Today's Deals", to: "/todaysdeals" },
+    { id: 5, title: "Customer Service", to: "/customerservice" },
   ];
   return (
     <div style={{ marginBottom: "50px" }}>
@@ -29,7 +36,7 @@ function Header() {
           <Navbar.Brand as={Link} to="/">
             <Image src={require("../../../../../assets/image/logo.png")} />
           </Navbar.Brand>
-          <Form style={{ width: "60%" }}>
+          <Form style={{ width: "60%" }} className="ms-3 me-3">
             <InputGroup>
               <Input type="text" placeholder="Search product" />
               <MainButton>
@@ -38,12 +45,16 @@ function Header() {
             </InputGroup>
           </Form>
           <Nav className="ms-auto">
-            <MainNavLink to="/cart">
-              <i class="fa-solid fa-cart-shopping me-1"></i>Cart
-            </MainNavLink>
-            <MainNavLink to="/login">
-              <i class="fa-solid fa-user ms-3 me-1"></i>Login
-            </MainNavLink>
+            <div className="me-3 text-center">
+              <MainNavLink to="/cart">
+                <i class="fa-solid fa-cart-shopping me-1"></i><span className={nav}>Cart</span>
+              </MainNavLink>
+            </div>
+            <div className="text-center">
+              <MainNavLink to="/login">
+                <i class="fa-solid fa-user me-1"></i><span className={nav}>Login</span>
+              </MainNavLink>
+            </div>
           </Nav>
         </Container>
       </Navbar>
@@ -54,7 +65,7 @@ function Header() {
             Categories
           </MainDropdown>
           <span className={separator}></span>
-          <Nav>
+          <Nav className={nav}>
             <MainNavLink to="/bestsellers">
               <span className="ms-3 me-3">Best Sellers</span>
             </MainNavLink>
@@ -69,6 +80,9 @@ function Header() {
             </MainNavLink>
             <MainNavLink to="/customerservice">Customer Service</MainNavLink>
           </Nav>
+          <div className={dropNav}>
+            <MainDropdown items={shop}>Shop</MainDropdown>
+          </div>
           <span className={separator}></span>
           <div className="ms-2">
             <MainDropdown items={test}>Languages</MainDropdown>
