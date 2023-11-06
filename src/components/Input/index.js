@@ -7,6 +7,7 @@ function Input({ type, placeholder, onChange, value }) {
   return (
     <Form.Control
       className={input}
+      size="lg"
       bg="light"
       type={type}
       placeholder={placeholder}

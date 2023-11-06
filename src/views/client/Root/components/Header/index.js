@@ -30,7 +30,7 @@ function Header() {
     { id: 5, title: "Customer Service", to: "/customerservice" },
   ];
   return (
-    <div style={{ marginBottom: "50px" }}>
+    <div>
       <Navbar className={navbar} bg="light" data-bs-theme="light">
         <Container>
           <Navbar.Brand as={Link} to="/">
@@ -40,19 +40,21 @@ function Header() {
             <InputGroup>
               <Input type="text" placeholder="Search product" />
               <MainButton>
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
               </MainButton>
             </InputGroup>
           </Form>
           <Nav className="ms-auto">
             <div className="me-3 text-center">
               <MainNavLink to="/cart">
-                <i class="fa-solid fa-cart-shopping me-1"></i><span className={nav}>Cart</span>
+                <i className="fa-solid fa-cart-shopping me-1"></i>
+                <span className={nav}>Cart</span>
               </MainNavLink>
             </div>
             <div className="text-center">
               <MainNavLink to="/login">
-                <i class="fa-solid fa-user me-1"></i><span className={nav}>Login</span>
+                <i className="fa-solid fa-user me-1"></i>
+                <span className={nav}>Login</span>
               </MainNavLink>
             </div>
           </Nav>
@@ -61,7 +63,7 @@ function Header() {
       <Navbar className={navbarSecondary} bg="light" data-bs-theme="light">
         <Container>
           <MainDropdown items={test}>
-            <i class="fa-solid fa-bars me-2"></i>
+            <i className="fa-solid fa-bars me-2"></i>
             Categories
           </MainDropdown>
           <span className={separator}></span>

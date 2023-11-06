@@ -11,10 +11,10 @@ function MainDropdown({ children, items }) {
         {children}
       </Dropdown.Toggle>
 
-      <Dropdown.Menu as={Link}>
+      <Dropdown.Menu>
         {items &&
           items.map((item) => (
-            <Dropdown.Item eventKey={item.id} as={Link} to={item.to}>
+            <Dropdown.Item key={item.id} eventKey={item.id} as={Link} to={item.to}>
               {item.title}
             </Dropdown.Item>
           ))}

@@ -8,9 +8,18 @@ function Root() {
   return (
     <div>
       <Header />
-      <Container>
-        <Outlet />
-      </Container>
+      <div
+        style={{
+          backgroundColor: "var(--bg-color)",
+          paddingTop: "50px",
+          paddingBottom: "50px",
+          minHeight: "calc(100vh - 80.8px - 40.8px - 90.96px )",
+        }}
+      >
+        <Container>
+          <Outlet />
+        </Container>
+      </div>
       <Footer />
     </div>
   );

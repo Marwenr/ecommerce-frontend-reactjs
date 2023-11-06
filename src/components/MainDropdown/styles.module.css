@@ -1,5 +1,5 @@
 .link {
-  color: var(--bg-color);
+  color: var(--text-color);
 }
 .link:hover {
   color: var(--main-color);

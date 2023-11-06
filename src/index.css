@@ -2,17 +2,16 @@
   --main-color: #f26522;
   --main-hover: #e85a18;
   --second-color: #e8bc52;
-  --bg-color: #2b2a29;
-  --text-color: #f1f1f1;
-  --text-secondary: #e4e4e4;
-  --border-color: #E6E7EB;
+  --bg-color: #f0f0f0;
+  --border-color: #dddfe2;
+  --text-color: #2b2a29;
+
 }
 * {
   box-sizing: border-box !important;
 }
 
 body {
-  color: #666666;
   font-family: 'Poppins', sans-serif;
 }
 

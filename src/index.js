@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Cart, Home, Login, Register, Root } from "./views/client";
+import { Cart, Home, Login, PayButtonComp, Register, Root } from "./views/client";
+import 'react-stripe-js/dist/style.css';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "pay",
+        element: <PayButtonComp />,
       },
     ],
   },
