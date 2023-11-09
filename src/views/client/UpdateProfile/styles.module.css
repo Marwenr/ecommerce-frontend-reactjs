@@ -1,0 +1,15 @@
+.phone {
+  margin-bottom: 16px;
+}
+.phone input {
+  border: 1px solid var(--border-color);
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.phone input:focus {
+  outline: none !important;
+  border:1px solid white;
+  box-shadow: 0 0 10px rgb(192, 192, 192);
+}

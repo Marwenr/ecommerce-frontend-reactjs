@@ -37,3 +37,14 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--main-color) !important;
+}
+
+.btn-primary:active {
+  --bs-btn-active-bg: var(--main-color);
+  --bs-btn-active-border-color: var(--main-color);
+  --bs-btn-active-color: var(--bg-color);
+}

@@ -3,10 +3,10 @@ import styles from "./styles.module.css";
 import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function MainDropdown({ children, items }) {
+function MainDropdown({ children, items, onClick }) {
   const { link } = styles;
   return (
-    <Dropdown className="me-3">
+    <Dropdown className="me-3" onClick={onClick}>
       <Dropdown.Toggle className={link} as={Link}>
         {children}
       </Dropdown.Toggle>

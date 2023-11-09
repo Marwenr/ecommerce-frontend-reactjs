@@ -51,7 +51,7 @@ function Login() {
           )}
           <div className="mb-3"></div>
           <Input
-            type="text"
+            type="password"
             placeholder="Password"
             name="password"
             onChange={formik.handleChange}
@@ -69,7 +69,7 @@ function Login() {
         <div className={separator}></div>
         <div className="text-center">
           <span className="me-1">Don't have an account?</span>
-          <MainNavLink to="/register">Sign up</MainNavLink>
+          <MainNavLink to="/register">Register</MainNavLink>
         </div>
       </Box>
     </div>
