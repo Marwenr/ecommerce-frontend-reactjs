@@ -1,0 +1,6 @@
+.back {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  margin-right: 10px;
+  cursor: pointer;
+}

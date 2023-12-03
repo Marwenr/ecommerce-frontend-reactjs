@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
@@ -6,40 +6,59 @@ import styles from "./styles.module.css";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import { Container } from "react-bootstrap";
 
-function MainSwiper() {
-  const {customButton} = styles;
+function MainSwiper({ children, cat }) {
+  const { customButton } = styles;
+  const [slidesPerView, setSlidesPerView] = useState(4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 576) {
+        setSlidesPerView(1);
+      } else if (window.innerWidth < 768) {
+        setSlidesPerView(1);
+      } else if (window.innerWidth < 992) {
+        setSlidesPerView(2);
+      } else if (window.innerWidth < 1200) {
+        setSlidesPerView(3);
+      } else {
+        setSlidesPerView(4);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <Container className="d-flex justify-content-between align-items-center">
-      <div className={`${customButton} el-1-prev me-3`}>
-        <i class="fa-solid fa-caret-left"></i>
+    <div className="d-flex justify-content-between align-items-center">
+      <div className={`${customButton} el-${cat.id}-prev me-3`}>
+        <i className="fa-solid fa-caret-left"></i>
       </div>
       <Swiper
         navigation={{
-          prevEl: `.el-1-prev`,
-          nextEl: `.el-1-next`,
+          prevEl: `.el-${cat.id}-prev`,
+          nextEl: `.el-${cat.id}-next`,
         }}
         modules={[Navigation]}
-        spaceBetween={0}
-        className="mySwiper"
-        style={{ width: "80%" }}
-        slidesPerView={1}
+        spaceBetween={20}
+        className="p-3"
+        style={{ width: "90%" }}
+        slidesPerView={slidesPerView}
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {cat.item.map((item) => (
+          <SwiperSlide key={item.id}>
+            {React.cloneElement(children, item)}
+          </SwiperSlide>
+        ))}
       </Swiper>
-      <div className={`${customButton} el-1-next ms-3`}>
-        <i class="fa-solid fa-caret-right"></i>
+      <div className={`${customButton} el-${cat.id}-next ms-3`}>
+        <i className="fa-solid fa-caret-right"></i>
       </div>
-    </Container>
+    </div>
   );
 }
 

@@ -1,0 +1,40 @@
+@media (max-width: 768px) {
+  .column {
+    display: none;
+  } 
+}
+
+.pending {
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #fffdf0;
+  color: #d8c306;
+}
+.completed {
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #effdf8;
+  color: #76e2ad;
+}
+.cancel {
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #fefbf7;
+  color: #fd9b7f;
+}
+
+.pendingActive {
+  color: #d8c306;
+}
+.completedActive {
+  color: #76e2ad;
+}
+.cancelActive {
+  color: #fd9b7f;
+}
+
+.activeStyle {
+  text-underline-offset: 5px;
+  text-decoration: underline;
+}
+

@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import {
   Cart,
@@ -12,9 +13,9 @@ import {
 } from "../views/client";
 import ProtectAuth from "../views/Protect/ProtectAuth";
 import ProtectRoute from "../views/Protect/ProtectRoute";
-import { useSelector } from "react-redux";
 import RefreshToken from "../views/RefreshToken";
 import Loading from "../views/Loading";
+import { AddProduct, Dashboard, LoginAdmin, Order, OrderDetails, Product, RootAdmin, UpdateProduct } from "../views/admin";
 
 function App() {
   const { isLoggedIn, isLoading } = useSelector((state) => state.auth);
@@ -36,6 +37,16 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
+        </Route>
+        <Route path="loginadmin" element={<LoginAdmin />} />
+        <Route path="admin" element={<RootAdmin />}>
+          <Route path="" element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="product" element={<Product />} />
+          <Route path="product/add" element={<AddProduct />} />
+          <Route path="product/update" element={<UpdateProduct />} />
+          <Route path="order" element={<Order />} />
+          <Route path="order/:id" element={<OrderDetails />} />
         </Route>
       </Route>
     </Routes>

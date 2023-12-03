@@ -4,3 +4,6 @@ export { default as MainNavLink } from "./MainNavLink";
 export { default as MainDropdown } from "./MainDropdown";
 export { default as MainSwiper } from "./MainSwiper";
 export { default as Box } from "./Box";
+export { default as ItemCard } from "./ItemCard";
+export { default as BackButton } from "./BackButton";
+export { default as Table } from "./Table";

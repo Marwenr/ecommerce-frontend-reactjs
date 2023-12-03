@@ -8,11 +8,21 @@
 
 }
 * {
-  box-sizing: border-box !important;
+  box-sizing: border-box!important;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
 }
 
 ul,
@@ -47,4 +57,24 @@ img {
   --bs-btn-active-bg: var(--main-color);
   --bs-btn-active-border-color: var(--main-color);
   --bs-btn-active-color: var(--bg-color);
+}
+
+.nav-pills .nav-link {
+  color: var(--main-color);
+  transition-duration: 500ms;
+  border-radius: 0;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-link:active {
+  background-color: var(--main-color);
+}
+
+.form-select {
+  border-color: var(--border-color);
+}
+.form-select:focus {
+  outline: none !important;
+  border:1px solid white;
+  box-shadow: 0 0 10px rgb(192, 192, 192);
 }

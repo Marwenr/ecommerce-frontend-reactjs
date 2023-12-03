@@ -27,3 +27,14 @@ export const ProfileSchema = Yup.object().shape({
   address: Yup.string().required("Required"),
   phone: Yup.string().min(5, "Invalid phone number").required("Required"),
 });
+
+export const productSchema = Yup.object().shape({
+  title: Yup.string()
+    .min(3, "Too Short!")
+    .max(10, "Too Long!")
+    .required("Required"),
+  description: Yup.string().required("Required"),
+  price: Yup.string().min(5, "Invalid phone number").required("Required"),
+  image: Yup.string().min(5, "Invalid phone number").required("Required"),
+  category: Yup.string().min(5, "Invalid phone number").required("Required"),
+});
