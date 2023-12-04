@@ -6,7 +6,6 @@ import ProductCard from "./ProductCard";
 function OrderDetails() {
   let { id } = useParams();
   let { state } = useLocation();
-  console.log(state);
   return (
     <div>
       <div className="d-flex align-items-center mt-3 mb-4">

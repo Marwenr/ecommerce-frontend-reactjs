@@ -50,7 +50,7 @@ function Product() {
     },
   ];
   const [search, setSearch] = useState(false);
-  const titles = ["Customer", "Status", "Date", "Action"];
+  const titles = ["Name", "Category", "Price", "Action"];
   return (
     <div>
       <div className="d-flex justify-content-between mt-3 mb-4">
