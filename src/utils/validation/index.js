@@ -29,12 +29,9 @@ export const ProfileSchema = Yup.object().shape({
 });
 
 export const productSchema = Yup.object().shape({
-  title: Yup.string()
-    .min(3, "Too Short!")
-    .max(10, "Too Long!")
-    .required("Required"),
+  title: Yup.string().required("Required"),
   description: Yup.string().required("Required"),
-  price: Yup.string().min(5, "Invalid phone number").required("Required"),
-  image: Yup.string().min(5, "Invalid phone number").required("Required"),
-  category: Yup.string().min(5, "Invalid phone number").required("Required"),
+  price: Yup.string().required("Required"),
+  image: Yup.string().required("Required"),
+  category: Yup.string().required("Required"),
 });

@@ -6,14 +6,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { Alert, Form } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import {AuthSchema} from "../../../utils/validation"
+import { AuthSchema } from "../../../utils/validation";
 
 function Login() {
   const { separator, containerAuth, logo } = styles;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation()
-  const { error, user } = useSelector((state) => state.auth);
+  const location = useLocation();
+  const { error, isLoggedIn } = useSelector((state) => state.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -23,12 +23,16 @@ function Login() {
     validationSchema: AuthSchema,
     onSubmit: (values) => {
       dispatch(signIn(values));
-    }
-  })
+    },
+  });
 
   useEffect(() => {
-    if (user.token) navigate("/");
-  }, [user, navigate]);
+    if (isLoggedIn) {
+      location.state?.prevUrl
+        ? navigate(location.state?.prevUrl)
+        : navigate("/");
+    }
+  }, [isLoggedIn, navigate, location.state?.prevUrl]);
 
   return (
     <div className={containerAuth}>
@@ -37,7 +41,11 @@ function Login() {
         <p>Login to enjoy the benefits of a shopping experience.</p>
       </div>
       <Box width="350px">
-        {location?.state?.msg && <Alert variant="success mt-3 p-2 text-center">{location?.state?.msg}</Alert>}
+        {location?.state?.msg && (
+          <Alert variant="success mt-3 p-2 text-center">
+            {location?.state?.msg}
+          </Alert>
+        )}
         <Form onSubmit={formik.handleSubmit}>
           <Input
             type="text"

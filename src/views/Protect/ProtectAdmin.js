@@ -1,9 +1,11 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
-function ProtectRoute({ isLoggedIn }) {
+function ProtectAdmin({ isLoggedIn, role }) {
   const location = useLocation();
-  return isLoggedIn ? (
+  return isLoggedIn && (role === "admin" || role === "manager") ? (
     <Outlet />
+  ) : isLoggedIn ? (
+    <Navigate to="/" replace={true} />
   ) : (
     <Navigate
       to="/login"
@@ -13,4 +15,4 @@ function ProtectRoute({ isLoggedIn }) {
   );
 }
 
-export default ProtectRoute;
+export default ProtectAdmin;

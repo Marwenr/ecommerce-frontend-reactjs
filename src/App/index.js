@@ -11,20 +11,30 @@ import {
   Root,
   UpdateProfile,
 } from "../views/client";
-import ProtectAuth from "../views/Protect/ProtectAuth";
 import ProtectRoute from "../views/Protect/ProtectRoute";
+import ProtectAdmin from "../views/Protect/ProtectAdmin";
 import RefreshToken from "../views/RefreshToken";
 import Loading from "../views/Loading";
-import { AddProduct, Dashboard, LoginAdmin, Order, OrderDetails, Product, RootAdmin, UpdateProduct } from "../views/admin";
+import {
+  AddProduct,
+  Dashboard,
+  Order,
+  OrderDetails,
+  Product,
+  RootAdmin,
+  UpdateProduct,
+} from "../views/admin";
 
 function App() {
-  const { isLoggedIn, isLoading } = useSelector((state) => state.auth);
+  const { isLoggedIn, isLoading, userData } = useSelector(
+    (state) => state.auth
+  );
 
   return (
     <Routes>
       <Route element={<Loading isLoading={isLoading} />}>
-        <Route path="/" element={<Root />}>
-          <Route element={<RefreshToken />}>
+        <Route element={<RefreshToken />}>
+          <Route path="/" element={<Root />}>
             <Route index="true" element={<Home />} />
             <Route element={<ProtectRoute isLoggedIn={isLoggedIn} />}>
               <Route path="cart" element={<Cart />} />
@@ -32,21 +42,25 @@ function App() {
               <Route path="password" element={<ChangePassword />} />
               <Route path="logout" element={<Logout />} />
             </Route>
-          </Route>
-          <Route element={<ProtectAuth isLoggedIn={isLoggedIn} />}>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
-        </Route>
-        <Route path="loginadmin" element={<LoginAdmin />} />
-        <Route path="admin" element={<RootAdmin />}>
-          <Route path="" element={<Dashboard />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="product" element={<Product />} />
-          <Route path="product/add" element={<AddProduct />} />
-          <Route path="product/update" element={<UpdateProduct />} />
-          <Route path="order" element={<Order />} />
-          <Route path="order/:id" element={<OrderDetails />} />
+          <Route
+            element={
+              <ProtectAdmin isLoggedIn={isLoggedIn} role={userData.role} />
+            }
+          >
+            <Route path="admin" element={<RootAdmin />}>
+              <Route path="" element={<Dashboard />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="product" element={<Product />} />
+              <Route path="product/add" element={<AddProduct />} />
+              <Route path="product/update/:id" element={<UpdateProduct />} />
+              <Route path="order" element={<Order />} />
+              <Route path="order/:id" element={<OrderDetails />} />
+              <Route path="logout" element={<Logout />} />
+            </Route>
+          </Route>
         </Route>
       </Route>
     </Routes>

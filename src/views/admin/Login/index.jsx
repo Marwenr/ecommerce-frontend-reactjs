@@ -1,19 +1,19 @@
 import React, { useEffect } from "react";
 import styles from "./styles.module.css";
 import { Box, Input, MainButton } from "../../../components";
-import { signIn } from "../../../store/authSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { Alert, Form } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { AuthSchema } from "../../../utils/validation";
+import { signIn } from "../../../store/authSlice";
 
 function Login() {
   const { containerAuth, title } = styles;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const { error, user } = useSelector((state) => state.auth);
+  const { error, userData } = useSelector((state) => state.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -27,8 +27,8 @@ function Login() {
   });
 
   useEffect(() => {
-    if (user.token) navigate("/");
-  }, [user, navigate]);
+    if (userData.role === "admin" || userData.role === "manager") navigate("/admin");
+  }, [userData, navigate]);
 
   return (
     <div className={containerAuth}>

@@ -1,11 +1,11 @@
 import React from "react";
 
-function ProductCard({ id, name, price, quantity }) {
+function ProductCard({ id, product, quantity }) {
   return (
     <tr key={id} className="align-items-center">
       <td>{id}</td>
-      <td>{name}</td>
-      <td>{price}</td>
+      <td>{product.title}</td>
+      <td>${product.price}</td>
       <td>{quantity}</td>
     </tr>
   );

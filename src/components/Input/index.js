@@ -2,8 +2,16 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import styles from "./styles.module.css";
 
-function Input({ type, placeholder, onChange, value, name, className }) {
-  const {input} = styles;
+function Input({
+  type,
+  placeholder,
+  onChange,
+  value,
+  name,
+  className,
+  disabled,
+}) {
+  const { input } = styles;
   return (
     <Form.Control
       className={`${input} ${className}`}
@@ -11,6 +19,7 @@ function Input({ type, placeholder, onChange, value, name, className }) {
       bg="light"
       type={type}
       placeholder={placeholder}
+      disabled={disabled}
       name={name}
       value={value}
       onChange={onChange}
