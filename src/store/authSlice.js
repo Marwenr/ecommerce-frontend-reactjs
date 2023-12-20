@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const signIn = createAsyncThunk("signIn", async (userAuth, thunkAPI) => {
+export const signIn = createAsyncThunk("signIn", async (userAuth) => {
   try {
     const response = await axios.post("http://localhost:3005/auth", userAuth, {
       headers: {
@@ -24,7 +24,7 @@ export const signIn = createAsyncThunk("signIn", async (userAuth, thunkAPI) => {
 
 export const refreshToken = createAsyncThunk(
   "refreshToken",
-  async (currentUser, thunkAPI) => {
+  async (currentUser) => {
     try {
       const response = await axios.get("http://localhost:3005/auth", {
         headers: {
@@ -50,7 +50,7 @@ export const refreshToken = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    isLoading: false,
+    isLoadingAuth: false,
     error: "",
     user: "",
     userData: {},
@@ -63,39 +63,39 @@ const authSlice = createSlice({
       state.userData = {};
     },
     isLoadingReducer: (state, action) => {
-      state.isLoading = action.payload;
+      state.isLoadingAuth = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(signIn.pending, (state, action) => {
-      state.isLoading = true;
+      state.isLoadingAuth = true;
     });
     builder.addCase(signIn.fulfilled, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingAuth = false;
       state.user = action.payload.token;
       state.userData = action.payload.user;
       state.isLoggedIn = true;
       state.error = "";
     });
     builder.addCase(signIn.rejected, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingAuth = false;
       state.isLoggedIn = false;
       state.error = action.error.message;
       state.user = {};
     });
 
     builder.addCase(refreshToken.pending, (state, action) => {
-      state.isLoading = true;
+      state.isLoadingAuth = true;
     });
     builder.addCase(refreshToken.fulfilled, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingAuth = false;
       state.user = action.payload.token;
       state.userData = action.payload.user;
       state.isLoggedIn = true;
       state.error = "";
     });
     builder.addCase(refreshToken.rejected, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingAuth = false;
       state.isLoggedIn = false;
       state.error = action.error.message;
       state.user = {};

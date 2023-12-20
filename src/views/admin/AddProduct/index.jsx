@@ -19,16 +19,14 @@ function AddProduct() {
         <BackButton navigateTo={"/admin/product"} />
         <h3>Add Product</h3>
       </div>
-      {categories.length > 0 && (
-        <div className="pt-5">
-          <FormProduct
-            categories={categories}
-            dispatch={dispatch}
-            addProduct={addProduct}
-            token={user}
-          />
-        </div>
-      )}
+      <div className="pt-5">
+        <FormProduct
+          categories={categories}
+          dispatch={dispatch}
+          addProduct={addProduct}
+          token={user}
+        />
+      </div>
     </div>
   );
 }

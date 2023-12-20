@@ -29,6 +29,20 @@ export const getCategories = createAsyncThunk("getCategories", async () => {
   }
 });
 
+export const getCategoryByName = createAsyncThunk(
+  "getCategoryByName",
+  async (category) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:3005/categories/${category}`
+      );
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+);
+
 export const addProduct = createAsyncThunk(
   "addProduct",
   async ({ product, token }) => {
@@ -90,65 +104,84 @@ export const deleteProduct = createAsyncThunk(
 
 const productSlice = createSlice({
   name: "product",
-  initialState: { isLoading: false, product: {}, products: [], categories: [] },
+  initialState: {
+    isLoadingProduct: false,
+    product: {},
+    products: [],
+    categories: [],
+    productsByCategory: {},
+  },
   extraReducers: (builder) => {
     builder.addCase(getProductById.pending, (state, action) => {
-      state.isLoading = true;
+      state.isLoadingProduct = true;
     });
     builder.addCase(getProductById.fulfilled, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
       state.product = action.payload;
       state.error = "";
     });
     builder.addCase(getProductById.rejected, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
       state.error = action.error.message;
     });
 
     builder.addCase(getProducts.pending, (state, action) => {
-      state.isLoading = true;
+      state.isLoadingProduct = true;
     });
     builder.addCase(getProducts.fulfilled, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
       state.products = action.payload;
       state.error = "";
     });
     builder.addCase(getProducts.rejected, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
       state.error = action.error.message;
     });
 
     builder.addCase(getCategories.pending, (state, action) => {
-      state.isLoading = true;
+      state.isLoadingProduct = true;
     });
     builder.addCase(getCategories.fulfilled, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
       state.categories = action.payload;
       state.error = "";
     });
     builder.addCase(getCategories.rejected, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
+      state.error = action.error.message;
+    });
+
+    builder.addCase(getCategoryByName.pending, (state, action) => {
+      state.isLoadingProduct = true;
+    });
+    builder.addCase(getCategoryByName.fulfilled, (state, action) => {
+      state.isLoadingProduct = false;
+      state.productsByCategory = action.payload;
+      state.error = "";
+    });
+    builder.addCase(getCategoryByName.rejected, (state, action) => {
+      state.isLoadingProduct = false;
       state.error = action.error.message;
     });
 
     builder.addCase(addProduct.pending, (state, action) => {
-      state.isLoading = true;
+      state.isLoadingProduct = true;
     });
     builder.addCase(addProduct.fulfilled, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
       state.products.push(action.payload);
       state.error = "";
     });
     builder.addCase(addProduct.rejected, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
       state.error = action.error.message;
     });
 
     builder.addCase(updateProd.pending, (state, action) => {
-      state.isLoading = true;
+      state.isLoadingProduct = true;
     });
     builder.addCase(updateProd.fulfilled, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
       state.products.map((product) =>
         product.id === action.payload.id
           ? { ...product, ...action.payload }
@@ -157,22 +190,22 @@ const productSlice = createSlice({
       state.error = "";
     });
     builder.addCase(updateProd.rejected, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
       state.error = action.error.message;
     });
 
     builder.addCase(deleteProduct.pending, (state, action) => {
-      state.isLoading = true;
+      state.isLoadingProduct = true;
     });
     builder.addCase(deleteProduct.fulfilled, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
       state.products = state.products.filter(
         (product) => product.id !== action.payload
       );
       state.error = "";
     });
     builder.addCase(deleteProduct.rejected, (state, action) => {
-      state.isLoading = false;
+      state.isLoadingProduct = false;
       state.error = action.error.message;
     });
   },

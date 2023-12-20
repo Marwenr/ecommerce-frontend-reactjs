@@ -24,21 +24,23 @@ import {
   RootAdmin,
   UpdateProduct,
 } from "../views/admin";
+import Category from "../views/client/Category";
 
 function App() {
-  const { isLoggedIn, isLoading, userData } = useSelector(
+  const { isLoggedIn, isLoadingAuth, userData } = useSelector(
     (state) => state.auth
   );
 
   return (
     <Routes>
-      <Route element={<Loading isLoading={isLoading} />}>
+      <Route element={<Loading isLoading={isLoadingAuth} />}>
         <Route element={<RefreshToken />}>
           <Route path="/" element={<Root />}>
             <Route index="true" element={<Home />} />
             <Route element={<ProtectRoute isLoggedIn={isLoggedIn} />}>
               <Route path="cart" element={<Cart />} />
-              <Route path="update" element={<UpdateProfile />} />
+              <Route path=":category" element={<Category />} />
+              <Route path="updateprofile" element={<UpdateProfile />} />
               <Route path="password" element={<ChangePassword />} />
               <Route path="logout" element={<Logout />} />
             </Route>
@@ -59,6 +61,7 @@ function App() {
               <Route path="order" element={<Order />} />
               <Route path="order/:id" element={<OrderDetails />} />
               <Route path="logout" element={<Logout />} />
+              <Route path="updateprofile" element={<UpdateProfile />} />
             </Route>
           </Route>
         </Route>

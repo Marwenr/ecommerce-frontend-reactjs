@@ -1,5 +1,5 @@
 .textTruncate {
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -12,10 +12,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
 }
 
-.image {
-  transition-duration: 2s;
-}
-
-.card:hover .image {
-  transform: scale(1.2);
+.imageStyle {
+  height: 200px;
 }

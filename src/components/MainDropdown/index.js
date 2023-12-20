@@ -13,14 +13,14 @@ function MainDropdown({ children, items, onClick, className }) {
 
       <Dropdown.Menu>
         {items &&
-          items.map((item) => (
+          items.map((item, index) => (
             <Dropdown.Item
-              key={item.id}
-              eventKey={item.id}
+              key={index}
+              eventKey={index}
               as={Link}
-              to={item.to}
+              to={item}
             >
-              {item.title}
+              {item}
             </Dropdown.Item>
           ))}
       </Dropdown.Menu>

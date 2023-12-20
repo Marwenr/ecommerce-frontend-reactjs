@@ -27,14 +27,14 @@ function Dashboard() {
 
   return (
     <div>
-      <div className="d-flex align-items-center gap-3">
+      <div className="d-flex align-items-center">
         <Box width="32%" className={bgGreen}>
           <p>Total Customers</p>
-          <h3>501</h3>
+          <h3>11</h3>
         </Box>
         <Box width="32%" className={bgBlue}>
           <p>Total Amount</p>
-          <h3>$ 35</h3>
+          <h3>$ 8k</h3>
         </Box>
         <Box width="32%" className={bgYellow}>
           <p>All Products</p>

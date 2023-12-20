@@ -49,9 +49,9 @@ function MainSwiper({ children, cat }) {
         style={{ width: "90%" }}
         slidesPerView={slidesPerView}
       >
-        {cat.item.map((item) => (
-          <SwiperSlide key={item.id}>
-            {React.cloneElement(children, item)}
+        {cat.products.map((el) => (
+          <SwiperSlide key={el.id}>
+            {React.cloneElement(children, el)}
           </SwiperSlide>
         ))}
       </Swiper>

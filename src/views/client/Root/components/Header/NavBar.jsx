@@ -3,12 +3,13 @@ import styles from "./styles.module.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { MainDropdown, MainNavLink } from "../../../../../components";
 
-function NavBar({shop, test}) {
+function NavBar({shop, test, categoriesTitle}) {
   const { navbarSecondary, separator, nav, dropNav } = styles;
+
   return (
     <Navbar className={navbarSecondary} bg="light" data-bs-theme="light">
       <Container>
-        <MainDropdown items={test}>
+        <MainDropdown items={categoriesTitle}>
           <i className="fa-solid fa-bars me-2"></i>
           Categories
         </MainDropdown>

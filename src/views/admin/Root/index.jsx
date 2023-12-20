@@ -5,24 +5,14 @@ import Sidebar from "./Sidebar";
 import NavbarTop from "./Navbar";
 
 function RootAdmin() {
-  const {
-    navtop,
-    sidebar,
-    bars,
-    content,
-    search,
-    sidebarHid,
-    contentHid,
-  } = styles;
-  const profile = [
-    { id: 1, title: "Update Profile", to: "update" },
-    { id: 2, title: "Logout", to: "logout" },
-  ];
+  const { navtop, sidebar, bars, content, search, sidebarHid, contentHid } =
+    styles;
+  const profile = ["UpdateProfile", "Logout"];
   const [sidebarHidden, setSidebarHidden] = useState(false);
 
   const onclick = () => {
-    setSidebarHidden(!sidebarHidden)
-  }
+    setSidebarHidden(!sidebarHidden);
+  };
 
   useEffect(() => {
     if (window.innerWidth < 992) {
@@ -32,7 +22,13 @@ function RootAdmin() {
 
   return (
     <div>
-      <NavbarTop navtop={navtop} bars={bars} search={search} profile={profile} onclick={onclick} />
+      <NavbarTop
+        navtop={navtop}
+        bars={bars}
+        search={search}
+        profile={profile}
+        onclick={onclick}
+      />
       <div>
         <Sidebar
           sidebar={sidebarHidden ? `${sidebar} + ${sidebarHid}` : sidebar}

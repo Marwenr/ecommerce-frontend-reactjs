@@ -1,4 +1,4 @@
-.Summary {
+.summary {
   padding-top: 0.5rem;
   border-top: 1px solid var(--border-color);
   padding-bottom: 20px;
@@ -8,4 +8,12 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 10px;
+}
+.closeBtn {
+  position: absolute;
+  right: 15px;
+}
+.image {
+  width: 100px;
+  height: 100px;
 }
