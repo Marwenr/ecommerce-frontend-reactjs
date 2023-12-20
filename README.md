@@ -36,8 +36,7 @@ This is the FrontEnd for our Ecommerce website. It provides the user interface f
 
 For the backend use:  
 ```NestJs: https://github.com/Marwenr/ecommerce-backend-nestjs.git```  
-or  
-```ExpressJs: https://github.com/Marwenr/ecommerce-backend-express.git```
+
 ## Installation
 
 To install Package.
