@@ -2,10 +2,8 @@
 
 This is the FrontEnd for our Ecommerce website. It provides the user interface for seamless navigation through our product catalog, easy cart management, and hassle-free order placement.
 
-![screencapture-localhost-3000-2023-12-20-01_29_48](https://github.com/Marwenr/ecommerce-frontend-reactjs/assets/97688966/9a9992bf-18fd-4ecd-985c-4674a385a9fb)
-![screencapture-localhost-3000-2023-12-20-01_33_45](https://github.com/Marwenr/ecommerce-frontend-reactjs/assets/97688966/c2752e2f-e509-43bb-bfd1-bb22fb2a34a9)
-![screencapture-localhost-3000-cart-2023-12-20-01_30_39](https://github.com/Marwenr/ecommerce-frontend-reactjs/assets/97688966/a3e18f32-173a-4a79-bbbb-c3626cb5896c)
-![screencapture-localhost-3000-cart-2023-12-20-01_34_32](https://github.com/Marwenr/ecommerce-frontend-reactjs/assets/97688966/5637589e-27a9-4624-b974-41171149bf9f)
+![screencapture-localhost-3000-2023-12-20-01_29_48](https://github.com/Marwenr/ecommerce-frontend-reactjs/assets/97688966/9f677ab6-4082-4538-a79e-735624be9f2e)
+![screencapture-localhost-3000-cart-2023-12-20-01_30_39](https://github.com/Marwenr/ecommerce-frontend-reactjs/assets/97688966/ffd520d0-5459-4fe4-a7b1-d5899d097c3d)
 ### Admin Panel
 ![screencapture-localhost-3000-admin-dashboard-2023-12-20-01_35_04](https://github.com/Marwenr/ecommerce-frontend-reactjs/assets/97688966/d54ed076-9ced-4a38-9b80-e0adfc47549d)
 ![screencapture-localhost-3000-admin-dashboard-2023-12-20-01_36_37](https://github.com/Marwenr/ecommerce-frontend-reactjs/assets/97688966/65f9c2c3-3aa0-4de6-a363-e708b2eb0b6e)
