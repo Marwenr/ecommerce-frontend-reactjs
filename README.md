@@ -2,10 +2,7 @@
 
 This is the FrontEnd for our Ecommerce website. It provides the user interface for seamless navigation through our product catalog, easy cart management, and hassle-free order placement.
 
-![Uploading screencapture-localhost-3000-2023-12-20-01_29_48.png…]()
-![Uploading screencapture-localhost-3000-2023-12-20-01_33_45.png…]()
-![Uploading screencapture-localhost-3000-admin-dashboard-2023-12-20-01_35_04.png…]()
-![Uploading screencapture-localhost-3000-admin-dashboard-2023-12-20-01_36_37.png…]()
+![screencapture-localhost-3000-2023-12-20-01_29_48](https://github.com/Marwenr/ecommerce-frontend-reactjs/assets/97688966/9a9992bf-18fd-4ecd-985c-4674a385a9fb)
 
 
 ## Built with
